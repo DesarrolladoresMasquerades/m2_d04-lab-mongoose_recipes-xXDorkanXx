@@ -42,9 +42,9 @@ mongoose
             {title: "Rigatoni alla Genovese"},
             {duration: 100},
             {new: true})
-          .then(async ()=>{
-            await Recipe.deleteOne({title: "Carrot Cake"})
-            await mongoose.connection.close()
+          .then(()=>{
+            Recipe.deleteOne({title: "Carrot Cake"})
+            .then(()=>mongoose.connection.close())
           })
         })
       })
